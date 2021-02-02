@@ -1,4 +1,7 @@
-import pygame, sys, random, time
+import pygame
+import sys
+import random
+import time
 
 from pygame_utilities import *
 
@@ -20,8 +23,6 @@ speed = .5
 
 # inital state
 arr = []
-
-
 
 
 # bubble_sort algorithm
@@ -54,9 +55,8 @@ def bubble_sort():
             time.sleep(speed)
 
 
-
 # drawing funcs
-                        
+
 def draw_bar(ind, is_compared):
     '''
     Draws a single bar. arr[ind] * 10 is taken as the height of the bar (for better display)
@@ -67,7 +67,8 @@ def draw_bar(ind, is_compared):
     bar_height = arr[ind] * 10
     color = [BLUE, ORANGE][is_compared]
 
-    x = ind * (bar_width + space) + (WIDTH - (arr_size * (bar_width + space))) / 2
+    x = ind * (bar_width + space) + \
+        (WIDTH - (arr_size * (bar_width + space))) / 2
     y = HEIGHT / 2 - bar_height
 
     pygame.draw.rect(screen, color, (x, y, bar_width, bar_height), 0)
@@ -78,7 +79,6 @@ def draw_bar(ind, is_compared):
 
 
 def draw_all_bars():
-
     '''
     Draws bar representation for all the values in the arr.
     All bars have the same color.
@@ -86,7 +86,6 @@ def draw_all_bars():
 
     for i in range(arr_size):
         draw_bar(i, False)
-
 
 
 # random arr creation
@@ -101,24 +100,22 @@ def create_arr():
         arr.append(height)
 
 
-
 if __name__ == '__main__':
 
     while True:
-        is_clicked = button(screen, 'Sort', WIDTH / 2 - 60, HEIGHT / 2 - 50, 80, 50, BLUE, ORANGE)
+        is_clicked = button(screen, 'Sort', WIDTH / 2 - 60,
+                            HEIGHT / 2 - 50, 80, 50, BLUE, ORANGE)
         pygame.display.update()
 
         if is_clicked:
             break
-        
+
         check_exit()
-        
 
     clear_screen(screen)
     create_arr()
     draw_all_bars()
     bubble_sort()
-
 
     while True:
         check_exit()

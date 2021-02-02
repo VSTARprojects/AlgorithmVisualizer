@@ -2,13 +2,11 @@ import pygame
 from sys import exit
 
 
-
 WIDTH = 800
 HEIGHT = 600
 BLUE = (0, 0, 255)
-ORANGE = (255,130, 80)
+ORANGE = (255, 130, 80)
 WHITE = (255, 255, 255)
-
 
 
 def button(screen, msg, x, y, w, h, ic, ac) -> bool:
@@ -30,7 +28,7 @@ def button(screen, msg, x, y, w, h, ic, ac) -> bool:
     screen.blit(text, (x + 20, y + 15))
 
     return is_clicked
-    
+
 
 def check_exit():
     for event in pygame.event.get():
